@@ -25,8 +25,8 @@ pip install --upgrade urllib3 --break-system-packages
 pip install --upgrade cryptography --break-system-packages  
 pip install --upgrade certifi --break-system-packages  
 
-# sudo su  
-# Copy nginx.tar.gz to /etc/  
+#sudo su  
+#Copy nginx.tar.gz to /etc/  
 cd /etc  
 tar -xvf ./nginx.tar  
 
@@ -34,12 +34,12 @@ tar -xvf ./nginx.tar
 sudo su  
 echo "127.0.0.1 secure-shared-store" >> /etc/hosts  
 
-# Now you can install the Guest Additions from the Devices Menu in VirtualBox  
-# Optional -> Change your network to Bridge then:  
+#Now you can install the Guest Additions from the Devices Menu in VirtualBox  
+#Optional -> Change your network to Bridge then:  
 sudo systemctl restart NetworkManager.service  
 sudo ip link show  
 sudo ip link set enp0s3 down  
 sudo ip link set enp0s3 up  
 
-# Optional Software
+#Optional Software
 sudo snap install pycharm-communicty --classic  
