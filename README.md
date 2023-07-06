@@ -30,6 +30,11 @@ pip install --upgrade certifi --break-system-packages
 cd /etc  
 tar -xvf ./nginx.tar  
 
+#Make server scripts executable
+chmod +x /home/cs6238/Desktop/Project4/server/application/start_server.sh  
+chmod +x /home/cs6238/Desktop/Project4/server/application/stop_server.sh  
+
+
 #Add secure-shared-store to the hosts file  
 sudo su  
 echo "127.0.0.1 secure-shared-store" >> /etc/hosts  
