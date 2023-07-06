@@ -21,7 +21,7 @@ sudo ufw allow ssh
 sudo ln -s /usr/bin/python3.11 /usr/bin/python  
 pip install flask_restful --break-system-packages  
 pip install --upgrade requests --break-system-packages  
-pip install --upgrade urllib3 --break-system-packages
+pip install --upgrade urllib3 --break-system-packages  
 pip install --upgrade cryptography --break-system-packages  
 pip install --upgrade certifi --break-system-packages  
 
