@@ -28,7 +28,7 @@ pip install --upgrade certifi --break-system-packages
 #sudo su  
 #Copy nginx.tar.gz to /etc/  
 cd /etc  
-tar -xvf ./nginx.tar  
+tar -xvf ./nginx.tar.gz  
 
 #Make server scripts executable
 chmod +x /home/cs6238/Desktop/Project4/server/application/start_server.sh  
