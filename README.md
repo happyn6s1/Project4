@@ -1,5 +1,5 @@
 # Project4
- 
+## Install the missing software 
 sudo apt install gcc -y  
 sudo apt install zsh -y  
 sudo apt install make -y  
@@ -25,6 +25,7 @@ pip install --upgrade urllib3 --break-system-packages
 pip install --upgrade cryptography --break-system-packages  
 pip install --upgrade certifi --break-system-packages  
 
+## Copy the certs to /etc/nginx
 #sudo su  
 #Copy nginx.tar.gz to /etc/  
 cd /etc  
@@ -35,7 +36,7 @@ chmod +x /home/cs6238/Desktop/Project4/server/application/start_server.sh
 chmod +x /home/cs6238/Desktop/Project4/server/application/stop_server.sh  
 
 
-#Add secure-shared-store to the hosts file  
+## Add secure-shared-store to the hosts file  
 sudo su  
 echo "127.0.0.1 secure-shared-store" >> /etc/hosts  
 
@@ -46,5 +47,5 @@ sudo ip link show
 sudo ip link set enp0s3 down  
 sudo ip link set enp0s3 up  
 
-#Optional Software
+#Optional Software  
 sudo snap install pycharm-communicty --classic  
