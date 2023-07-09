@@ -40,8 +40,8 @@ chmod +x /home/cs6238/Desktop/Project4/server/application/stop_server.sh
 sudo su  
 echo "127.0.0.1 secure-shared-store" >> /etc/hosts  
 
-#Now you can install the Guest Additions from the Devices Menu in VirtualBox  
-#Optional -> Change your network to Bridge then:  
+### Now you can install the Guest Additions from the Devices Menu in VirtualBox  
+### Optional -> Change your network to Bridge then:  
 sudo systemctl restart NetworkManager.service  
 sudo ip link show  
 sudo ip link set enp0s3 down  
