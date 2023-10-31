@@ -48,7 +48,7 @@ sudo ip link set enp0s3 down
 sudo ip link set enp0s3 up  
 
 ### Optional Software  
-sudo snap install pycharm-communicty --classic  
+sudo snap install pycharm-community --classic  
 
 ### Folder Structure
 mkdir /home/cs6238/Desktop/Projet4/client1/certs  
