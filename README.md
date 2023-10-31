@@ -49,3 +49,12 @@ sudo ip link set enp0s3 up
 
 ### Optional Software  
 sudo snap install pycharm-communicty --classic  
+
+### Folder Structure
+mkdir /home/cs6238/Desktop/Projet4/client1/certs  
+mkdir /home/cs6238/Desktop/Projet4/client1/userkeys  
+mkdir /home/cs6238/Desktop/Projet4/client2/certs  
+mkdir /home/cs6238/Desktop/Projet4/client2/userkeys  
+mkdir /home/cs6238/Desktop/Project4/server/application/userpublickeys  
+
+
