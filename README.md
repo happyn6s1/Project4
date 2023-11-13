@@ -24,6 +24,7 @@ pip install --upgrade requests --break-system-packages
 pip install --upgrade urllib3 --break-system-packages  
 pip install --upgrade cryptography --break-system-packages  
 pip install --upgrade certifi --break-system-packages  
+pip install PyJWT --break-system-packages  
 
 ## Copy the certs to /etc/nginx
 sudo su  
