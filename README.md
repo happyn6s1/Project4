@@ -31,6 +31,10 @@ sudo su
 cp /home/cs6238/Desktop/Project4/nginx.tar.gz /etc/  
 cd /etc  
 tar -xvf ./nginx.tar.gz  
+exit
+sudo cp /home/cs6238/Desktop/Project4/CA/CA.crt /usr/local/share/ca-certificates/CA.crt
+sudo update-ca-certificates
+reboot
 
 ## Make the server scripts executable  
 chmod +x /home/cs6238/Desktop/Project4/server/application/start_server.sh  
@@ -52,10 +56,10 @@ sudo ip link set enp0s3 up
 sudo snap install pycharm-community --classic  
 
 ### Folder Structure
-mkdir /home/cs6238/Desktop/Projet4/client1/certs  
-mkdir /home/cs6238/Desktop/Projet4/client1/userkeys  
-mkdir /home/cs6238/Desktop/Projet4/client2/certs  
-mkdir /home/cs6238/Desktop/Projet4/client2/userkeys  
+mkdir /home/cs6238/Desktop/Project4/client1/certs  
+mkdir /home/cs6238/Desktop/Project4/client1/userkeys  
+mkdir /home/cs6238/Desktop/Project4/client2/certs  
+mkdir /home/cs6238/Desktop/Project4/client2/userkeys  
 mkdir /home/cs6238/Desktop/Project4/server/application/userpublickeys  
 
 
