@@ -34,7 +34,7 @@ tar -xvf ./nginx.tar.gz
 exit  
 sudo cp /home/cs6238/Desktop/Project4/CA/CA.crt /usr/local/share/ca-certificates/CA.crt  
 sudo update-ca-certificates  
-reboot  
+sudo reboot  
 
 ## Make the server scripts executable  
 chmod +x /home/cs6238/Desktop/Project4/server/application/start_server.sh  
