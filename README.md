@@ -62,4 +62,4 @@ mkdir /home/cs6238/Desktop/Project4/client2/certs
 mkdir /home/cs6238/Desktop/Project4/client2/userkeys  
 mkdir /home/cs6238/Desktop/Project4/server/application/userpublickeys  
 
-
+## Make sure that the status of nginx is active by using the command – systemctl status nginx. If the status is not active, you can restart it using the command – sudo systemctl restart nginx
