@@ -13,7 +13,12 @@ from cryptography.hazmat.primitives.asymmetric import padding
 secure_shared_service = Flask(__name__)
 api = Api(secure_shared_service)
 
+#use a map to store session to user mapping
 tokens = {}
+#use a map to store file DID to owner, securityflag, and key/hash 
+access_map = {}
+#use a map to store file DID to a list of ACLs [starttime, endtime]
+acl = {}
 
 def save_session_token(session_token, user_id):
     # session_filename = f"session_{user_id}.txt"
@@ -29,25 +34,55 @@ def get_userid_from_token(session_token):
     #            return fn[8:-4]
     # return None
     if session_token in tokens:
-        return token[session_token]
+        return tokens[session_token]
     else:
         return None
 
 def checkaccess(session_token, DID):
-    access_filename = f"access_{DID}.csv"
+    # access_filename = f"access_{DID}.csv"
     user = get_userid_from_token(session_token)
-    with open(access_filename) as f:
-        for line in f.readlines():
-            user_id, start, end = line.strip().split(",")
-            if start == "INF" and end == "INF" and user_id == user:
-                return "Owner"         
-    return "" 
+    # with open(access_filename) as f:
+    #    for line in f.readlines():
+    #        user_id, start, end = line.strip().split(",")
+    #        if start == "INF" and end == "INF" and user_id == user:
+    #            return "Owner"         
+    # return "" 
+    if DID in access_map and access_map[DID][0] == user:
+        return "Owner"
+    return ""
+def hash_data(filedata):
+    digest = hashes.Hash(hashes.SHA256())
+    digest.update(filedata)
+    return digest.finalize()
 
-def setowner(session_token, DID):
-    access_filename = f"access_{DID}.csv"
+def encrypt_data(filedata):
+    aes_key = secrets.token_bytes(32)
+    key = aes_key.hex()
+    iv = secrets.token_bytes(12)
+    cipher = Cipher(algorithms.AES(aes_key). modes.CBC(iv))
+    encryptor = cipher.encryptor()
+    padder = padding.PKCS7(128).padder()
+    padded_data = padder.update(filedata) + padder.finalize()
+    ciphertext = encryptor.update(padded_data) + encryptor.finalize()
+    return ciphertext, aes_key.hex()+":"+iv.hex()
+
+def decrypt_data(encrypted_filedata, hash_key):
+    key_hex , iv_hex = hash_key.split(":")
+    key = bytes.fromhex(key_hex)
+    iv = bytes.fromhex(iv_hex)
+    cipher = Cipher(algorithms.AES(aes_key). modes.CBC(iv))
+    decryptor = cipher.decryptor()
+    decrypted_padded = decryptor.update(ciphertext) + decryptor.finilize()
+    unpadder = padding.PKCS7(128).unpadder()
+    decrypted_text = unpadder.update(decrypted_padded) + unpadder.finalize()
+    return decrypted_text 
+
+def setattr(session_token, DID, securityflag, hashkey):
+    # access_filename = f"access_{DID}.csv"
     user_id = get_userid_from_token(session_token)
-    with open(access_filename, "w") as f:
-        f.write(f"{user_id},INF,INF")
+    # with open(access_filename, "w") as f:
+    #    f.write(f"{user_id},INF,INF")
+    access_map[DID] = [user_id, securityflag, hashkey]
  
 class welcome(Resource):
     def get(self):
@@ -136,11 +171,22 @@ class checkin(Resource):
         filedata = base64.b64decode(data['filedata'])
         securityflag = data['securityflag']
         DID = data['DID']
+        if securityflag not in (1,2):
+            response = {
+                'status': 700,
+                'message': 'Invalid Security Flag',
+            }
+            
         with open(f"{project_home}/server/application/documents/{DID}", "wb") as f:
-            f.write(filedata)
-            setowner(token, DID)
- 
-        success = False
+            if securityflag == 1:
+                encrypt_filedata, hash_key = encrypt_data(filedata) 
+                f.write(encrypt_filedata)
+            else: 
+                hash_key = hash_data(filedata) 
+                f.write(filedata)
+            setattr(token, DID, securityflag, hash_key)
+            print(access_map) 
+        success = True
         if success:
             response = {
                 'status': 200,
@@ -168,7 +214,8 @@ class checkout(Resource):
         token = data['token']
         DID = data['DID']
         filedata = ''
-        if not os.path.exists(f"{project_home}/server/application/documents/{DID}"):
+        print(access_map)
+        if DID not in access_map or not os.path.exists(f"{project_home}/server/application/documents/{DID}"):
             response = {
                 'status': 704,
                 'message': 'Check out failed since file not found on the server',
@@ -177,6 +224,7 @@ class checkout(Resource):
             return jsonify(response)
                
 
+        user_id, securityflag, hash_key = access_map[DID]
         if checkaccess(token, DID):
             with open(f"{project_home}/server/application/documents/{DID}","rb") as f:
                 filedata = f.read()
@@ -186,6 +234,8 @@ class checkout(Resource):
         if success:
             # Similar response format given below can be
             # used for all the other functions
+            if securityflag == 1:
+                filedata = decrypt_data(filedata, key_hex)
             response = {
                 'status': 200,
                 'message': 'Document Successfully checked out',
