@@ -2,13 +2,20 @@ import requests
 import base64
 import json
 # TODO: import additional modules as required
+import os
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.asymmetric import padding
 
-gt_username = 'gburdell3'   # TODO: Replace with your gt username within quotes
+gt_username = 'hjiang365'   # TODO: Replace with your gt username within quotes
 server_name = 'secure-shared-store'
 
 # These need to be created manually before you start coding.
+# these will be overwritten later
+
 node_certificate = 'clientX.crt'
 node_key = 'clientX.key'
+
 
 ''' <!!! DO NOT MODIFY THIS FUNCTION !!!>'''
 def post_request(server_name, action, body, node_certificate, node_key):
@@ -37,7 +44,22 @@ def post_request(server_name, action, body, node_certificate, node_key):
 ''' You can begin modification from here'''
 
 def sign_statement(statement, user_private_key_file):
-    return b'signed statement'
+    print(user_private_key_file)
+    print(statement)
+
+    with open(user_private_key_file, "rb") as key_file:
+        private_key = serialization.load_pem_private_key(
+            key_file.read(),
+            password=None,
+        )
+        return private_key.sign(
+            statement.encode("utf-8"),
+            padding.PSS(
+                mgf=padding.MGF1(hashes.SHA256()),
+                salt_length=padding.PSS.MAX_LENGTH
+            ),
+            hashes.SHA256()
+        )
 
 def login():
     """
@@ -51,22 +73,23 @@ def login():
     """
 
     successful_login = False
-
     while not successful_login:
         # get the user id from the user input or default to user1
         user_id = (input(" User Id: ") or "user1")
-
 
         # get the user private key filename or default to user1.key
         private_key_filename = (input(" Private Key Filename: ") or "user1.key")
 
         # complete the full path of the user private key filename (depends on the client)
         # Ex: '/home/cs6238/Desktop/Project4/client1/userkeys/' + private_key_filename
-        user_private_key_file = '/home/cs6238/Desktop/Project4/client1/userkeys/' + private_key_filename
-
+        user_private_key_file = f"{project_home}/{clientID}/userkeys/"+ private_key_filename
+        if not os.path.exists(user_private_key_file):
+            print(f"\nUser Private Key File Does not exist:\n{user_private_key_file}")
+            return None
         # create the statement
-        statement = 'statement'
+        statement = f"{clientID} as {user_id} logs into the Server"
         signed_statement = sign_statement(statement, user_private_key_file)
+        # print(base64.b64encode(signed_statement).decode("utf8"))
 
         body = {
             'user-id': user_id,
@@ -75,12 +98,12 @@ def login():
         }
 
         server_response = post_request(server_name, 'login', body, node_certificate, node_key)
-
+        # print(server_response.json())
         if server_response.json().get('status') == 200:
             successful_login = True
         else:
             print(server_response.json().get('message', "Try again"))
-
+    print(server_response.json())
     return server_response.json()
 
 
@@ -92,7 +115,30 @@ def checkin(session_token):
         Send the request to server with required parameters (action = 'checkin') using post_request().
         The request body should contain the required parameters to ensure the file is sent to the server.
     """
+    DID = (input(" Document Id: ") or "file1.txt")
+    flag = (input(" Security Flag: ") or "1")
+    # validate the flag
+    file_home = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkin"    
+    filedata = ""
+    file = f"{file_home}/{DID}"
+    if not os.path.exists(file):
+        print(f"\nFile Does not exist: {file}")
+        return None
 
+    with open(file,"rb") as f:
+        filedata = f.read()
+    body = {
+        'token': session_token,
+        'DID': DID,
+        'securityflag': flag,
+        'filedata': base64.b64encode(filedata).decode("utf-8")
+    }
+    server_response = post_request(server_name, 'checkin', body, node_certificate, node_key)
+    print(server_response.json())
+    if server_response.json().get('status') == 200:
+        successful_login = True
+    else:
+        print(server_response.json().get('message', "Try again"))
     return
 
 
@@ -101,7 +147,23 @@ def checkout(session_token):
         # TODO:
         Send request to server with required parameters (action = 'checkout') using post_request()
     """
-
+    DID = (input(" Document Id: ") or "file1.txt")
+    # validate the flag
+    file_home = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkout"    
+    filedata = ""
+    body = {
+        'token': session_token,
+        'DID': DID,
+    }
+    server_response = post_request(server_name, 'checkout', body, node_certificate, node_key)
+    print(server_response.json())
+    if server_response.json().get('status') == 200:
+        with open(f"{file_home}/{DID}", "wb") as f:
+            f.write(base64.b64decode(server_response.json().get('file')))
+        successful_login = True
+    else:
+        print(server_response.json().get('message', "Try again"))
+    
     return
 
 
@@ -124,8 +186,23 @@ def delete(session_token):
         Send request to server with required parameters (action = 'delete')
         using post_request().
     """
-
+    DID = (input(" Document Id: ") or "file1.txt")
+    # validate the flag
+    body = {
+        'token': session_token,
+        'DID': DID,
+    }
+    server_response = post_request(server_name, 'delete', body, node_certificate, node_key)
+    print(server_response.json())
+    if server_response.json().get('status') == 200:
+        successful_login = True
+    else:
+        print(server_response.json().get('message', "Try again"))
+    
     return
+
+
+
 
 
 def logout(session_token):
@@ -177,7 +254,9 @@ def main():
     # test()
     # return
     login_return = login()
-
+    if not login_return:
+        return
+ 
     server_message = login_return['message']
     server_status = login_return['status']
     session_token = login_return['session_token']
@@ -206,6 +285,13 @@ def main():
         else:
             print('not a valid choice')
 
-
+clientID = ""
 if __name__ == '__main__':
+    # try to recognize the client ID
+    project_home = "/home/cs6238/Desktop/Project4"
+    cwd = os.getcwd()
+    clientID = cwd.split("/")[-1]
+    print(f"You are at {clientID}")
+    node_certificate = f"{project_home}/{clientID}/certs/{clientID}.crt"
+    node_key = f"{project_home}/{clientID}/certs/{clientID}.key"
     main()
