@@ -5,10 +5,13 @@ import base64
 import json
 import secrets
 import glob,os
+from datetime import datetime, timedelta
 
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives import padding as aes_padding
 
 secure_shared_service = Flask(__name__)
 api = Api(secure_shared_service)
@@ -50,6 +53,20 @@ def checkaccess(session_token, DID):
     if DID in access_map and access_map[DID][0] == user:
         return "Owner"
     return ""
+
+def check_grant(session_token, DID, mode):
+    user = get_userid_from_token(session_token)
+    if DID not in acl:
+        return False
+    current_time = datetime.now()
+
+    for u, r, start, end in acl[DID][::-1]:
+        if u == user or u == "0":
+            if start <= current_time <= end and r & mode:
+                return True
+            else:
+                return False 
+    return False
 def hash_data(filedata):
     digest = hashes.Hash(hashes.SHA256())
     digest.update(filedata)
@@ -58,31 +75,38 @@ def hash_data(filedata):
 def encrypt_data(filedata):
     aes_key = secrets.token_bytes(32)
     key = aes_key.hex()
-    iv = secrets.token_bytes(12)
-    cipher = Cipher(algorithms.AES(aes_key). modes.CBC(iv))
+    iv = secrets.token_bytes(16)
+    cipher = Cipher(algorithms.AES(aes_key), modes.CBC(iv))
     encryptor = cipher.encryptor()
-    padder = padding.PKCS7(128).padder()
+    padder = aes_padding.PKCS7(128).padder()
     padded_data = padder.update(filedata) + padder.finalize()
     ciphertext = encryptor.update(padded_data) + encryptor.finalize()
     return ciphertext, aes_key.hex()+":"+iv.hex()
 
 def decrypt_data(encrypted_filedata, hash_key):
     key_hex , iv_hex = hash_key.split(":")
-    key = bytes.fromhex(key_hex)
+    aes_key = bytes.fromhex(key_hex)
     iv = bytes.fromhex(iv_hex)
-    cipher = Cipher(algorithms.AES(aes_key). modes.CBC(iv))
+    cipher = Cipher(algorithms.AES(aes_key), modes.CBC(iv))
     decryptor = cipher.decryptor()
-    decrypted_padded = decryptor.update(ciphertext) + decryptor.finilize()
-    unpadder = padding.PKCS7(128).unpadder()
+    decrypted_padded = decryptor.update(encrypted_filedata) + decryptor.finalize()
+    unpadder = aes_padding.PKCS7(128).unpadder()
     decrypted_text = unpadder.update(decrypted_padded) + unpadder.finalize()
     return decrypted_text 
 
-def setattr(session_token, DID, securityflag, hashkey):
+def setowner(session_token, DID):
     # access_filename = f"access_{DID}.csv"
     user_id = get_userid_from_token(session_token)
     # with open(access_filename, "w") as f:
     #    f.write(f"{user_id},INF,INF")
-    access_map[DID] = [user_id, securityflag, hashkey]
+    access_map[DID] = [user_id, "", ""]
+ 
+def setattr(DID, securityflag, hashkey):
+    # access_filename = f"access_{DID}.csv"
+    # with open(access_filename, "w") as f:
+    #    f.write(f"{user_id},INF,INF")
+    access_map[DID][1] = securityflag
+    access_map[DID][2] = hashkey
  
 class welcome(Resource):
     def get(self):
@@ -134,12 +158,13 @@ class login(Resource):
                 'message': f"Login Failed - Cannot find public key file {user_public_key_file}",
                 'session_token': "INVALID",
             }
+            debug()
             return jsonify(response)
         success = verify_statement(statement, signed_statement, user_public_key_file)
 
         if success:
             session_token = secrets.token_hex()
-            print(session_token)
+            # print(session_token)
             save_session_token(session_token, user_id)
             # Similar response format given below can be used for all the other functions
             response = {
@@ -153,6 +178,7 @@ class login(Resource):
                 'message': 'Login Failed',
                 'session_token': "INVALID",
             }
+        debug()
         return jsonify(response)
 
 
@@ -167,7 +193,7 @@ class checkin(Resource):
     def post(self):
         data = request.get_json()
         token = data['token']
-        print(data)
+        # print(data)
         filedata = base64.b64decode(data['filedata'])
         securityflag = data['securityflag']
         DID = data['DID']
@@ -176,16 +202,33 @@ class checkin(Resource):
                 'status': 700,
                 'message': 'Invalid Security Flag',
             }
+        filename = f"{project_home}/server/application/documents/{DID}"
+
+        if os.path.exists(filename):
+            if checkaccess(token, DID) == "Owner" or check_grant(token, DID, 1):
+                pass
+            else:
+                print("II"*100)
+                response = {
+                    'status': 702,
+                    'message': 'Access denied checking in',
+                }
+                debug()
+                return jsonify(response)
             
-        with open(f"{project_home}/server/application/documents/{DID}", "wb") as f:
-            if securityflag == 1:
+        else:
+            setowner(token, DID)
+
+        with open(filename, "wb") as f:
+            if securityflag == "1":
+                # print("encdcccc")
                 encrypt_filedata, hash_key = encrypt_data(filedata) 
                 f.write(encrypt_filedata)
             else: 
                 hash_key = hash_data(filedata) 
                 f.write(filedata)
-            setattr(token, DID, securityflag, hash_key)
-            print(access_map) 
+            setattr(DID, securityflag, hash_key)
+            #print(access_map) 
         success = True
         if success:
             response = {
@@ -197,6 +240,7 @@ class checkin(Resource):
                 'status': 702,
                 'message': 'Access denied checking in',
             }
+        debug()
         return jsonify(response)
 
 
@@ -214,18 +258,19 @@ class checkout(Resource):
         token = data['token']
         DID = data['DID']
         filedata = ''
-        print(access_map)
+        #print(access_map)
         if DID not in access_map or not os.path.exists(f"{project_home}/server/application/documents/{DID}"):
             response = {
                 'status': 704,
                 'message': 'Check out failed since file not found on the server',
                 'file': 'Invalid',
             }
+            debug()
             return jsonify(response)
                
 
         user_id, securityflag, hash_key = access_map[DID]
-        if checkaccess(token, DID):
+        if checkaccess(token, DID) or check_grant(token, DID, 2):
             with open(f"{project_home}/server/application/documents/{DID}","rb") as f:
                 filedata = f.read()
             success = True
@@ -234,8 +279,20 @@ class checkout(Resource):
         if success:
             # Similar response format given below can be
             # used for all the other functions
-            if securityflag == 1:
-                filedata = decrypt_data(filedata, key_hex)
+            if securityflag == "1":
+                filedata = decrypt_data(filedata, hash_key)
+            else:
+                hash = hash_data(filedata)
+                if hash != hash_key:
+                    #print("Integrity check failure")
+                    response = {
+                        'status': 703,
+                        'message': 'Integrity Check Failed',
+                        'file': 'Invalid',
+                    }
+                    debug()
+                    return jsonify(response)
+                
             response = {
                 'status': 200,
                 'message': 'Document Successfully checked out',
@@ -247,6 +304,7 @@ class checkout(Resource):
                 'message': 'Access denied checking out',
                 'file': 'Invalid',
             }
+        debug()
         return jsonify(response)
 
 class grant(Resource):
@@ -259,7 +317,37 @@ class grant(Resource):
     def post(self):
         data = request.get_json()
         token = data['token']
-        success = False
+        DID = data['DID']
+        if DID not in access_map or not os.path.exists(f"{project_home}/server/application/documents/{DID}"):
+            #print(access_map)
+            response = {
+                'status': 700,
+                'message': 'grant failed since file not found on the server',
+                'file': 'Invalid',
+            }
+            debug()
+            return jsonify(response)
+        if get_userid_from_token(token) != access_map[DID][0]:
+            response = {
+                'status': 702,
+                'message': 'Access Denied, grant failed since you are not owner',
+                'file': 'Invalid',
+            }
+            debug()
+            return jsonify(response)
+                 
+        user_id = data['user_id']
+        right = int(data['right'])
+        t = data['t']
+        t = int(t)
+        current_time = datetime.now()
+        endtime = current_time + timedelta(seconds=t) 
+        if DID in acl:
+            acl[DID].append((user_id, right, current_time, endtime))
+        else:
+            acl[DID] = [(user_id, right, current_time, endtime)]
+        #print(acl)
+        success = True 
         if success:
             # Similar response format given below can be
             # used for all the other functions
@@ -272,6 +360,7 @@ class grant(Resource):
                 'status': 702,
                 'message': 'Access denied to grant access',
             }
+        debug()
         return jsonify(response)
 
 
@@ -294,11 +383,16 @@ class delete(Resource):
                 'message': 'Delete failed since file not found on the server',
                 'file': 'Invalid',
             }
+            debug()
             return jsonify(response)
                
-
+       
         if checkaccess(token, DID) == "Owner":
             os.remove(f"{project_home}/server/application/documents/{DID}")
+            if DID in access_map:
+                del access_map[DID]
+            if DID in acl:
+                del acl[DID]
             success = True
         else:
             success = False
@@ -312,9 +406,10 @@ class delete(Resource):
         else:
             response = {
                 'status': 702,
-                'message': 'Access denied checking out',
+                'message': 'Access denied to delete',
                 'file': 'Invalid',
             }
+        debug()
         return jsonify(response)
 
 
@@ -326,22 +421,18 @@ class logout(Resource):
             2) 700 - Failed to log out
         """
 
-        def post(self):
-            data = request.get_json()
-            token = data['token']
-        success = False
-        if success:
-            # Similar response format given below can be
-            # used for all the other functions
-            response = {
-                'status': 200,
-                'message': 'Successfully logged out',
-            }
-        else:
-            response = {
-                'status': 700,
-                'message': 'Failed to log out',
-            }
+        data = request.get_json()
+        token = data['token']
+        user = get_userid_from_token(token)
+        del tokens[token]
+        
+        # Similar response format given below can be
+        # used for all the other functions
+        response = {
+            'status': 200,
+            'message': 'Successfully logged out',
+        }
+        debug()
         return jsonify(response)
 
 
@@ -354,11 +445,22 @@ api.add_resource(grant, '/grant')
 api.add_resource(delete, '/delete')
 api.add_resource(logout, '/logout')
 
-
+def debug():
+    print("====")
+    print(tokens)
+    print(access_map)
+    print(acl)
+    print("====")
 project_home = "/home/cs6238/Desktop/Project4"
 def main():
     secure_shared_service.run(debug=True)
 
-
+def clearup():
+    dir = f"{project_home}/server/application/documents"
+    for f in os.listdir(dir):
+        fp = os.path.join(dir, f)
+        if os.path.isfile(fp):
+            os.remove(fp)
 if __name__ == '__main__':
+    clearup()
     main()

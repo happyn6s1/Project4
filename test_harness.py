@@ -4,7 +4,7 @@ import time
 import json
 
 # TODO: Configure gt_username
-GT_USERNAME = "gburdel"
+GT_USERNAME = "hjiang365"
 
 print(f"The value of GT_USERNAME is: {GT_USERNAME}")
 

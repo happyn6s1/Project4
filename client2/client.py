@@ -44,8 +44,8 @@ def post_request(server_name, action, body, node_certificate, node_key):
 ''' You can begin modification from here'''
 
 def sign_statement(statement, user_private_key_file):
-    print(user_private_key_file)
-    print(statement)
+    # print(user_private_key_file)
+    # print(statement)
 
     with open(user_private_key_file, "rb") as key_file:
         private_key = serialization.load_pem_private_key(
@@ -77,18 +77,19 @@ def login():
         # get the user id from the user input or default to user1
         user_id = (input(" User Id: ") or "user1")
 
-
         # get the user private key filename or default to user1.key
         private_key_filename = (input(" Private Key Filename: ") or "user1.key")
 
         # complete the full path of the user private key filename (depends on the client)
         # Ex: '/home/cs6238/Desktop/Project4/client1/userkeys/' + private_key_filename
         user_private_key_file = f"{project_home}/{clientID}/userkeys/"+ private_key_filename
-
+        if not os.path.exists(user_private_key_file):
+            print(f"\nUser Private Key File Does not exist:\n{user_private_key_file}")
+            return None
         # create the statement
         statement = f"{clientID} as {user_id} logs into the Server"
         signed_statement = sign_statement(statement, user_private_key_file)
-        print(base64.b64encode(signed_statement).decode("utf8"))
+        # print(base64.b64encode(signed_statement).decode("utf8"))
 
         body = {
             'user-id': user_id,
@@ -97,12 +98,13 @@ def login():
         }
 
         server_response = post_request(server_name, 'login', body, node_certificate, node_key)
-        print(server_response.json())
+        # print(server_response.json())
         if server_response.json().get('status') == 200:
+            print(f"{user_id} login Succesfully")
             successful_login = True
         else:
             print(server_response.json().get('message', "Try again"))
-    print(server_response.json())
+    #print(server_response.json())
     return server_response.json()
 
 
@@ -116,10 +118,17 @@ def checkin(session_token):
     """
     DID = (input(" Document Id: ") or "file1.txt")
     flag = (input(" Security Flag: ") or "1")
-    # validate the flag
     file_home = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkin"    
+    # validate the flag
+    file = f"{file_home}/{DID}"
+    if not os.path.exists(file):
+        print(f"\nFile Does not exist: {file}")
+        return None
+    checkin_file(DID, file, flag, session_token)
+
+def checkin_file(DID, file, flag, session_token):
     filedata = ""
-    with open(f"{file_home}/{DID}","rb") as f:
+    with open(file,"rb") as f:
         filedata = f.read()
     body = {
         'token': session_token,
@@ -128,9 +137,9 @@ def checkin(session_token):
         'filedata': base64.b64encode(filedata).decode("utf-8")
     }
     server_response = post_request(server_name, 'checkin', body, node_certificate, node_key)
-    print(server_response.json())
+    # print(server_response.json())
     if server_response.json().get('status') == 200:
-        successful_login = True
+        print(f"Check In Succesfully: {file} with security flag {flag}")
     else:
         print(server_response.json().get('message', "Try again"))
     return
@@ -150,11 +159,11 @@ def checkout(session_token):
         'DID': DID,
     }
     server_response = post_request(server_name, 'checkout', body, node_certificate, node_key)
-    print(server_response.json())
+    #print(server_response.json())
     if server_response.json().get('status') == 200:
         with open(f"{file_home}/{DID}", "wb") as f:
             f.write(base64.b64decode(server_response.json().get('file')))
-        successful_login = True
+        print(f"checkout succesfully for file {DID}")
     else:
         print(server_response.json().get('message', "Try again"))
     
@@ -170,6 +179,28 @@ def grant(session_token):
          - time duration (in seconds) for which access is granted
         Send request to server with required parameters (action = 'grant') using post_request()
     """
+    DID = (input(" Document Id: ") or "file1.txt")
+    user_id = (input(" Target User Id: ") or "user1")
+    right  = (input(" Access Right: ") or "1")
+    t = (input(" Time in seconds: ") or "60")
+    # validate the flag
+    body = {
+        'token': session_token,
+        'DID': DID,
+        'user_id': user_id,
+        'right': right,
+        't': t,
+    }
+    server_response = post_request(server_name, 'grant', body, node_certificate, node_key)
+    # print(server_response.json())
+    if server_response.json().get('status') == 200:
+        print(f"Granted file {DID} to {user_id} for {t} seconds with right : {right}")
+    else:
+        print(server_response.json().get('message', "Try again"))
+    
+    return
+
+
 
     return
 
@@ -180,8 +211,23 @@ def delete(session_token):
         Send request to server with required parameters (action = 'delete')
         using post_request().
     """
-
+    DID = (input(" Document Id: ") or "file1.txt")
+    # validate the flag
+    body = {
+        'token': session_token,
+        'DID': DID,
+    }
+    server_response = post_request(server_name, 'delete', body, node_certificate, node_key)
+    #print(server_response.json())
+    if server_response.json().get('status') == 200:
+        print(f"The File {DID} has been Deleted")
+    else:
+        print(server_response.json().get('message', "Try again"))
+    
     return
+
+
+
 
 
 def logout(session_token):
@@ -190,7 +236,17 @@ def logout(session_token):
         Send request to server with required parameters (action = 'logout') using post_request()
         The request body should contain the user-id, session-token
     """
-
+    body = {
+        'token': session_token,
+    }
+    server_response = post_request(server_name, 'logout', body, node_certificate, node_key)
+    print(server_response.json())
+    if server_response.json().get('status') == 200:
+        print(f"Logout succesfully")
+    else:
+        print(server_response.json().get('message', "Try again"))
+    
+    is_login = False
     return
 
 
@@ -233,7 +289,9 @@ def main():
     # test()
     # return
     login_return = login()
-
+    if not login_return:
+        return
+ 
     server_message = login_return['message']
     server_status = login_return['status']
     session_token = login_return['session_token']
@@ -247,6 +305,7 @@ def main():
         is_login = True
 
     while is_login:
+        #print(is_login)
         print_main_menu()
         user_choice = input()
         if user_choice == '1':
@@ -259,6 +318,7 @@ def main():
             delete(session_token)
         elif user_choice == '5':
             logout(session_token)
+            exit()
         else:
             print('not a valid choice')
 

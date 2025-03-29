@@ -1,6 +1,7 @@
 import requests
 import base64
 import json
+import shutil
 # TODO: import additional modules as required
 import os
 from cryptography.hazmat.primitives import serialization
@@ -15,7 +16,7 @@ server_name = 'secure-shared-store'
 
 node_certificate = 'clientX.crt'
 node_key = 'clientX.key'
-
+checkout_files = {}
 
 ''' <!!! DO NOT MODIFY THIS FUNCTION !!!>'''
 def post_request(server_name, action, body, node_certificate, node_key):
@@ -44,8 +45,8 @@ def post_request(server_name, action, body, node_certificate, node_key):
 ''' You can begin modification from here'''
 
 def sign_statement(statement, user_private_key_file):
-    print(user_private_key_file)
-    print(statement)
+    # print(user_private_key_file)
+    # print(statement)
 
     with open(user_private_key_file, "rb") as key_file:
         private_key = serialization.load_pem_private_key(
@@ -100,10 +101,11 @@ def login():
         server_response = post_request(server_name, 'login', body, node_certificate, node_key)
         # print(server_response.json())
         if server_response.json().get('status') == 200:
+            print(f"{user_id} login Succesfully")
             successful_login = True
         else:
             print(server_response.json().get('message', "Try again"))
-    print(server_response.json())
+    #print(server_response.json())
     return server_response.json()
 
 
@@ -117,14 +119,21 @@ def checkin(session_token):
     """
     DID = (input(" Document Id: ") or "file1.txt")
     flag = (input(" Security Flag: ") or "1")
-    # validate the flag
+    src = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkout/{DID}"    
+    if DID in checkout_files and os.path.exists(src):
+        del checkout_files[DID]
+        dest = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkin/{DID}"
+        shutil.move(src,dest)
     file_home = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkin"    
-    filedata = ""
+    # validate the flag
     file = f"{file_home}/{DID}"
     if not os.path.exists(file):
         print(f"\nFile Does not exist: {file}")
         return None
+    checkin_file(DID, file, flag, session_token)
 
+def checkin_file(DID, file, flag, session_token):
+    filedata = ""
     with open(file,"rb") as f:
         filedata = f.read()
     body = {
@@ -134,9 +143,9 @@ def checkin(session_token):
         'filedata': base64.b64encode(filedata).decode("utf-8")
     }
     server_response = post_request(server_name, 'checkin', body, node_certificate, node_key)
-    print(server_response.json())
+    # print(server_response.json())
     if server_response.json().get('status') == 200:
-        successful_login = True
+        print(f"Check In Succesfully: {file} with security flag {flag}")
     else:
         print(server_response.json().get('message', "Try again"))
     return
@@ -156,11 +165,12 @@ def checkout(session_token):
         'DID': DID,
     }
     server_response = post_request(server_name, 'checkout', body, node_certificate, node_key)
-    print(server_response.json())
+    #print(server_response.json())
     if server_response.json().get('status') == 200:
         with open(f"{file_home}/{DID}", "wb") as f:
             f.write(base64.b64decode(server_response.json().get('file')))
-        successful_login = True
+        print(f"checkout succesfully for file {DID}")
+        checkout_files[DID] = True
     else:
         print(server_response.json().get('message', "Try again"))
     
@@ -176,6 +186,28 @@ def grant(session_token):
          - time duration (in seconds) for which access is granted
         Send request to server with required parameters (action = 'grant') using post_request()
     """
+    DID = (input(" Document Id: ") or "file1.txt")
+    user_id = (input(" Target User Id: ") or "user1")
+    right  = (input(" Access Right: ") or "1")
+    t = (input(" Time in seconds: ") or "60")
+    # validate the flag
+    body = {
+        'token': session_token,
+        'DID': DID,
+        'user_id': user_id,
+        'right': right,
+        't': t,
+    }
+    server_response = post_request(server_name, 'grant', body, node_certificate, node_key)
+    # print(server_response.json())
+    if server_response.json().get('status') == 200:
+        print(f"Granted file {DID} to {user_id} for {t} seconds with right : {right}")
+    else:
+        print(server_response.json().get('message', "Try again"))
+    
+    return
+
+
 
     return
 
@@ -193,9 +225,10 @@ def delete(session_token):
         'DID': DID,
     }
     server_response = post_request(server_name, 'delete', body, node_certificate, node_key)
-    print(server_response.json())
+    #print(server_response.json())
     if server_response.json().get('status') == 200:
-        successful_login = True
+        print(f"The File {DID} has been Deleted")
+        del checkout_files[DID]
     else:
         print(server_response.json().get('message', "Try again"))
     
@@ -211,7 +244,26 @@ def logout(session_token):
         Send request to server with required parameters (action = 'logout') using post_request()
         The request body should contain the user-id, session-token
     """
+    for DID in checkout_files:
+        flag = 2
+        src = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkout/{DID}"    
+        if os.path.exists(src):
+            dest = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkin/{DID}"
+            shutil.move(src,dest)
+            file_home = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkin"    
+            checkin_file(DID, dest, flag, session_token)
 
+    body = {
+        'token': session_token,
+    }
+    server_response = post_request(server_name, 'logout', body, node_certificate, node_key)
+    print(server_response.json())
+    if server_response.json().get('status') == 200:
+        print(f"Logout succesfully")
+    else:
+        print(server_response.json().get('message', "Try again"))
+    
+    is_login = False
     return
 
 
@@ -270,6 +322,7 @@ def main():
         is_login = True
 
     while is_login:
+        #print(is_login)
         print_main_menu()
         user_choice = input()
         if user_choice == '1':
@@ -282,6 +335,7 @@ def main():
             delete(session_token)
         elif user_choice == '5':
             logout(session_token)
+            exit()
         else:
             print('not a valid choice')
 

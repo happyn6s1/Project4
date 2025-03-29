@@ -1,0 +1,447 @@
+ * Serving Flask app 'server'
+ * Debug mode: on
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1'}
+{}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1'}
+{}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '2', b'\xa9q\xc9\xa8`\xaeP\xf6s\xb0I-\n@Qm\xc1i\xf3_\xa3\r#\xf8\x10\x9d\xd7t\xdc\xd8yM']}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '2', b'\xa9q\xc9\xa8`\xaeP\xf6s\xb0I-\n@Qm\xc1i\xf3_\xa3\r#\xf8\x10\x9d\xd7t\xdc\xd8yM']}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '2', b'\xa9q\xc9\xa8`\xaeP\xf6s\xb0I-\n@Qm\xc1i\xf3_\xa3\r#\xf8\x10\x9d\xd7t\xdc\xd8yM']}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 34, 14, 789880), datetime.datetime(2025, 3, 28, 3, 45, 14, 789880))]}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 34, 14, 789880), datetime.datetime(2025, 3, 28, 3, 45, 14, 789880))]}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 34, 14, 789880), datetime.datetime(2025, 3, 28, 3, 45, 14, 789880))]}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 34, 14, 789880), datetime.datetime(2025, 3, 28, 3, 45, 14, 789880)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 34, 23, 785064), datetime.datetime(2025, 3, 28, 3, 45, 23, 785064))]}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 34, 14, 789880), datetime.datetime(2025, 3, 28, 3, 45, 14, 789880)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 34, 23, 785064), datetime.datetime(2025, 3, 28, 3, 45, 23, 785064))]}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 34, 14, 789880), datetime.datetime(2025, 3, 28, 3, 45, 14, 789880)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 34, 23, 785064), datetime.datetime(2025, 3, 28, 3, 45, 23, 785064))]}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', '95501c47eb060f80a6b0f5a74b377734f6f726d2400dd51ec9110c5093e3db23:e3fc2972d4f6c3cffc16557749c9d0ea']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 34, 14, 789880), datetime.datetime(2025, 3, 28, 3, 45, 14, 789880)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 34, 23, 785064), datetime.datetime(2025, 3, 28, 3, 45, 23, 785064)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 34, 32, 800953), datetime.datetime(2025, 3, 28, 3, 45, 32, 800953))]}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', 'aaa0302462abc8dd8fda26b4cab450373f2dc3c642054bff88ae08fd0a5a67b8:1c1612fd535b3401fea3943878c3bbf3']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 34, 14, 789880), datetime.datetime(2025, 3, 28, 3, 45, 14, 789880)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 34, 23, 785064), datetime.datetime(2025, 3, 28, 3, 45, 23, 785064)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 34, 32, 800953), datetime.datetime(2025, 3, 28, 3, 45, 32, 800953))]}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', 'aaa0302462abc8dd8fda26b4cab450373f2dc3c642054bff88ae08fd0a5a67b8:1c1612fd535b3401fea3943878c3bbf3']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 34, 14, 789880), datetime.datetime(2025, 3, 28, 3, 45, 14, 789880)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 34, 23, 785064), datetime.datetime(2025, 3, 28, 3, 45, 23, 785064)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 34, 32, 800953), datetime.datetime(2025, 3, 28, 3, 45, 32, 800953))]}
+====
+====
+{'39776b43febb18bf39145601e693b3a0fa22de83846f0957110e22177c5edc3b': 'user1', '30cf0fb0e58ee200f56928b97ae7040fdf017b08c4576458a3786b7e4400cdac': 'user2'}
+{'file1.txt': ['user1', '1', 'aaa0302462abc8dd8fda26b4cab450373f2dc3c642054bff88ae08fd0a5a67b8:1c1612fd535b3401fea3943878c3bbf3']}
+ * Serving Flask app 'server'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 795-586-155
+127.0.0.1 - - [28/Mar/2025 03:35:01] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:04] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:07] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:09] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:12] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:15] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:18] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:21] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:24] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:27] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:30] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:33] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:36] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:39] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:42] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:45] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:48] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:51] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:54] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:35:57] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:36:00] "POST /checkout HTTP/1.0" 200 -
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1'}
+{}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1'}
+{}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '2', b'\xa9q\xc9\xa8`\xaeP\xf6s\xb0I-\n@Qm\xc1i\xf3_\xa3\r#\xf8\x10\x9d\xd7t\xdc\xd8yM']}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '2', b'\xa9q\xc9\xa8`\xaeP\xf6s\xb0I-\n@Qm\xc1i\xf3_\xa3\r#\xf8\x10\x9d\xd7t\xdc\xd8yM']}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '2', b'\xa9q\xc9\xa8`\xaeP\xf6s\xb0I-\n@Qm\xc1i\xf3_\xa3\r#\xf8\x10\x9d\xd7t\xdc\xd8yM']}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'e5242399e061d751b3a12bbc7e7f9f63481289e086793780b2ad5669a987bcb0:bb1a3667a7f5616ae94c75a3f7e0d271']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 35, 54, 868796), datetime.datetime(2025, 3, 28, 3, 46, 54, 868796))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'bdc62c3e5887f9fea1812eea5667459d2e12504f755520b00c645d65664f00a0:b508af1a9c202abebe7f3312b40ac8e8']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 35, 54, 868796), datetime.datetime(2025, 3, 28, 3, 46, 54, 868796))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'bdc62c3e5887f9fea1812eea5667459d2e12504f755520b00c645d65664f00a0:b508af1a9c202abebe7f3312b40ac8e8']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 35, 54, 868796), datetime.datetime(2025, 3, 28, 3, 46, 54, 868796))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', 'bdc62c3e5887f9fea1812eea5667459d2e12504f755520b00c645d65664f00a0:b508af1a9c202abebe7f3312b40ac8e8']}
+127.0.0.1 - - [28/Mar/2025 03:36:03] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:36:06] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:36:09] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:36:12] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:36:15] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:36:18] "POST /delete HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:36:21] "POST /delete HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:36:24] "POST /delete HTTP/1.0" 200 -
+ * Detected change in '/home/cs6238/Desktop/Project4/server/application/server.py', reloading
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 35, 54, 868796), datetime.datetime(2025, 3, 28, 3, 46, 54, 868796)), ('0', 3, datetime.datetime(2025, 3, 28, 3, 36, 3, 880069), datetime.datetime(2025, 3, 28, 3, 36, 3, 880069))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', '1d30b069a25fe63eb41ab503aab69d3802d6ffecb0eca2e1ae554fc31d9405bb:b95d02f9afa3c694899b74fab9e1a578']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 35, 54, 868796), datetime.datetime(2025, 3, 28, 3, 46, 54, 868796)), ('0', 3, datetime.datetime(2025, 3, 28, 3, 36, 3, 880069), datetime.datetime(2025, 3, 28, 3, 36, 3, 880069))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', '1d30b069a25fe63eb41ab503aab69d3802d6ffecb0eca2e1ae554fc31d9405bb:b95d02f9afa3c694899b74fab9e1a578']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 35, 54, 868796), datetime.datetime(2025, 3, 28, 3, 46, 54, 868796)), ('0', 3, datetime.datetime(2025, 3, 28, 3, 36, 3, 880069), datetime.datetime(2025, 3, 28, 3, 36, 3, 880069))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', '1d30b069a25fe63eb41ab503aab69d3802d6ffecb0eca2e1ae554fc31d9405bb:b95d02f9afa3c694899b74fab9e1a578']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 35, 54, 868796), datetime.datetime(2025, 3, 28, 3, 46, 54, 868796)), ('0', 3, datetime.datetime(2025, 3, 28, 3, 36, 3, 880069), datetime.datetime(2025, 3, 28, 3, 36, 3, 880069))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', '1d30b069a25fe63eb41ab503aab69d3802d6ffecb0eca2e1ae554fc31d9405bb:b95d02f9afa3c694899b74fab9e1a578']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 35, 54, 868796), datetime.datetime(2025, 3, 28, 3, 46, 54, 868796)), ('0', 3, datetime.datetime(2025, 3, 28, 3, 36, 3, 880069), datetime.datetime(2025, 3, 28, 3, 36, 3, 880069))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{'file1.txt': ['user1', '1', '1d30b069a25fe63eb41ab503aab69d3802d6ffecb0eca2e1ae554fc31d9405bb:b95d02f9afa3c694899b74fab9e1a578']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 35, 36, 851076), datetime.datetime(2025, 3, 28, 3, 46, 36, 851076)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 35, 45, 855759), datetime.datetime(2025, 3, 28, 3, 46, 45, 855759)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 35, 54, 868796), datetime.datetime(2025, 3, 28, 3, 46, 54, 868796)), ('0', 3, datetime.datetime(2025, 3, 28, 3, 36, 3, 880069), datetime.datetime(2025, 3, 28, 3, 36, 3, 880069))]}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{}
+{}
+====
+====
+{'8b2b9fd1820a29fb9bd0bd37d0e6b2ea3f78aa98173b0e7dd0fc46e121458363': 'user1', '2024d0e1cd67170c6a401a00f14860398384087285bc67b424dacef0125e5dc5': 'user2'}
+{}
+{}
+====
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 795-586-155
+ * Serving Flask app 'server'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 795-586-155
+127.0.0.1 - - [28/Mar/2025 03:37:35] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:37:38] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:37:41] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:37:44] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:37:47] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:37:50] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:37:53] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:37:56] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:37:59] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:02] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:05] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:08] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:11] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:14] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:17] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:20] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:23] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:26] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:29] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:32] "POST /checkin HTTP/1.0" 200 -
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1'}
+{}
+{}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1'}
+{}
+{}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{}
+{}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '2', b'\xa9q\xc9\xa8`\xaeP\xf6s\xb0I-\n@Qm\xc1i\xf3_\xa3\r#\xf8\x10\x9d\xd7t\xdc\xd8yM']}
+{}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '2', b'\xa9q\xc9\xa8`\xaeP\xf6s\xb0I-\n@Qm\xc1i\xf3_\xa3\r#\xf8\x10\x9d\xd7t\xdc\xd8yM']}
+{}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '2', b'\xa9q\xc9\xa8`\xaeP\xf6s\xb0I-\n@Qm\xc1i\xf3_\xa3\r#\xf8\x10\x9d\xd7t\xdc\xd8yM']}
+{}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{}
+====
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{}
+====
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 38, 11, 18654), datetime.datetime(2025, 3, 28, 3, 49, 11, 18654))]}
+====
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 38, 11, 18654), datetime.datetime(2025, 3, 28, 3, 49, 11, 18654))]}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 38, 11, 18654), datetime.datetime(2025, 3, 28, 3, 49, 11, 18654))]}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 38, 11, 18654), datetime.datetime(2025, 3, 28, 3, 49, 11, 18654)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 38, 20, 57094), datetime.datetime(2025, 3, 28, 3, 49, 20, 57094))]}
+====
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 38, 11, 18654), datetime.datetime(2025, 3, 28, 3, 49, 11, 18654)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 38, 20, 57094), datetime.datetime(2025, 3, 28, 3, 49, 20, 57094))]}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 38, 11, 18654), datetime.datetime(2025, 3, 28, 3, 49, 11, 18654)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 38, 20, 57094), datetime.datetime(2025, 3, 28, 3, 49, 20, 57094))]}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', 'a2d23894d3e750f4a15b7bd9dec0eed28aa45a89db67f21733c2c169bb6ae1c2:5a1b57a539ee2bdae2a5bcf618a625ee']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 38, 11, 18654), datetime.datetime(2025, 3, 28, 3, 49, 11, 18654)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 38, 20, 57094), datetime.datetime(2025, 3, 28, 3, 49, 20, 57094)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 38, 29, 55738), datetime.datetime(2025, 3, 28, 3, 49, 29, 55738))]}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+{'file1.txt': ['user1', '1', '23f78407f5849e519ae4fd022c01d8c2580641ee03e6c633953b5a084190d092:d86e8bf3296ec03ad2e45d0e2495076d']}
+{'file1.txt': [('0', 3, datetime.datetime(2025, 3, 28, 3, 38, 11, 18654), datetime.datetime(2025, 3, 28, 3, 49, 11, 18654)), ('user2', 2, datetime.datetime(2025, 3, 28, 3, 38, 20, 57094), datetime.datetime(2025, 3, 28, 3, 49, 20, 57094)), ('user2', 1, datetime.datetime(2025, 3, 28, 3, 38, 29, 55738), datetime.datetime(2025, 3, 28, 3, 49, 29, 55738))]}
+====
+====
+{'fd3057077495fe7a3af6624e560c8f7b3de6e6e8eb220a07b16a52b23b14c5ab': 'user1', 'd8540ce4f9b1bc074296ace3a75429a7473313c506ae3f74bdc1fcd697ab922d': 'user2'}
+127.0.0.1 - - [28/Mar/2025 03:38:35] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:38] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:41] "POST /checkin HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:44] "POST /checkout HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:47] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:50] "POST /grant HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:53] "POST /delete HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:56] "POST /delete HTTP/1.0" 200 -
+127.0.0.1 - - [28/Mar/2025 03:38:59] "POST /delete HTTP/1.0" 200 -
+ * Serving Flask app 'server'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 795-586-155
