@@ -460,6 +460,9 @@ def main():
 
 def clearup():
     dir = f"{project_home}/server/application/documents"
+    if not os.path.exists(dir):
+        os.mkdir(dir)
+        return 
     for f in os.listdir(dir):
         fp = os.path.join(dir, f)
         if os.path.isfile(fp):
