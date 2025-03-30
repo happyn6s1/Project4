@@ -1,6 +1,7 @@
 import requests
 import base64
 import json
+import shutil
 # TODO: import additional modules as required
 import os
 from cryptography.hazmat.primitives import serialization
@@ -15,7 +16,7 @@ server_name = 'secure-shared-store'
 
 node_certificate = 'clientX.crt'
 node_key = 'clientX.key'
-
+checkout_files = {}
 
 ''' <!!! DO NOT MODIFY THIS FUNCTION !!!>'''
 def post_request(server_name, action, body, node_certificate, node_key):
@@ -118,6 +119,11 @@ def checkin(session_token):
     """
     DID = (input(" Document Id: ") or "file1.txt")
     flag = (input(" Security Flag: ") or "1")
+    src = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkout/{DID}"    
+    if DID in checkout_files and os.path.exists(src):
+        del checkout_files[DID]
+        dest = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkin/{DID}"
+        shutil.move(src,dest)
     file_home = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkin"    
     # validate the flag
     file = f"{file_home}/{DID}"
@@ -164,6 +170,7 @@ def checkout(session_token):
         with open(f"{file_home}/{DID}", "wb") as f:
             f.write(base64.b64decode(server_response.json().get('file')))
         print(f"checkout succesfully for file {DID}")
+        checkout_files[DID] = True
     else:
         print(server_response.json().get('message', "Try again"))
     
@@ -221,6 +228,7 @@ def delete(session_token):
     #print(server_response.json())
     if server_response.json().get('status') == 200:
         print(f"The File {DID} has been Deleted")
+        del checkout_files[DID]
     else:
         print(server_response.json().get('message', "Try again"))
     
@@ -236,6 +244,15 @@ def logout(session_token):
         Send request to server with required parameters (action = 'logout') using post_request()
         The request body should contain the user-id, session-token
     """
+    for DID in checkout_files:
+        flag = 2
+        src = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkout/{DID}"    
+        if os.path.exists(src):
+            dest = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkin/{DID}"
+            shutil.move(src,dest)
+            file_home = f"/home/cs6238/Desktop/Project4/{clientID}/documents/checkin"    
+            checkin_file(DID, dest, flag, session_token)
+
     body = {
         'token': session_token,
     }
@@ -281,9 +298,9 @@ def main():
     """
 
     # Initialize variables to keep track of progress
-    server_message = 'UNKNOWN'
-    server_status = 'UNKNOWN'
-    session_token = 'UNKNOWN'
+    server_message = ''
+    server_status = ''
+    session_token = None
     is_login = False
 
     # test()

@@ -127,6 +127,7 @@ def verify_statement(statement, signed_statement, user_public_key_file):
                 ),
                 hashes.SHA256()
             )
+            
         except:
             return False
         return True 
@@ -161,6 +162,8 @@ class login(Resource):
             debug()
             return jsonify(response)
         success = verify_statement(statement, signed_statement, user_public_key_file)
+        if user_id != statement.split()[2]:
+            sucess = False
 
         if success:
             session_token = secrets.token_hex()
@@ -453,7 +456,7 @@ def debug():
     print("====")
 project_home = "/home/cs6238/Desktop/Project4"
 def main():
-    secure_shared_service.run(debug=True)
+    secure_shared_service.run(debug=False)
 
 def clearup():
     dir = f"{project_home}/server/application/documents"

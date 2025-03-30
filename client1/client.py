@@ -298,9 +298,9 @@ def main():
     """
 
     # Initialize variables to keep track of progress
-    server_message = 'UNKNOWN'
-    server_status = 'UNKNOWN'
-    session_token = 'UNKNOWN'
+    server_message = ''
+    server_status = ''
+    session_token = None
     is_login = False
 
     # test()
